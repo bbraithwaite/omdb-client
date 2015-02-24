@@ -23,6 +23,7 @@
   "homepage": "https://github.com/bbraithwaite/imdb-api-client",
   "devDependencies": {
     "jshint": "^2.6.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2"
   }
 }
