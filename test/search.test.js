@@ -28,12 +28,68 @@ describe('Search Film', function() {
 
 	beforeEach(function() {
 		sinon.stub(simpleHttp, 'get');
-		simpleHttp.get.yields(null, { foo: 'bar' });
+		simpleHttp.get.yields(null, { title: 'film title' });
 	});
 
 	afterEach(function() {
 		simpleHttp.get.restore();
 	});
+
+	it('with http error returns error message', function(done) {
+
+    var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
+    var params = {
+      query: 'Terminator'
+    };
+
+    simpleHttp.get.withArgs(url).yields('timeout error', null);
+
+    _shouldHaveErrorMessage(
+      params,
+      'timeout error',
+      done);
+  });
+
+  it('with imdb error returns error message', function(done) {
+
+    var url = 'http://www.omdbapi.com/?s=Alcatraz&r=json';
+    
+    var response = { 
+      Error: 'message from imdb server' 
+    };
+
+    var params = {
+      query: 'Alcatraz'
+    };
+
+    simpleHttp.get.withArgs(url).yields(null, response);
+
+    _shouldHaveErrorMessage(
+      params,
+      'message from imdb server',
+      done);
+  });
+
+  it('with imdb data returns response data', function(done) {
+
+    var url = 'http://www.omdbapi.com/?s=The%20Brain%20Terminator&r=json';
+    
+    var response = { 
+      Title: 'The Brain Terminator',
+      Year: '2012'
+    };
+
+    var params = {
+      query: 'The Brain Terminator'
+    };
+
+    simpleHttp.get.withArgs(url).yields(null, response);
+
+    imdbApi.search(params, function(err, data) {
+      data.should.eql(response);
+      done();
+    });
+  });
 
 	describe('with invalid mandatory params', function() {
 
