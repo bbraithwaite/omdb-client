@@ -9,7 +9,6 @@ var validator = require('../lib/validator');
 
 describe('Validate', function () {
 
-
 	describe('String', function() {
 		it('returns true for valid string', function() {
 			validator.isString('Alcatraz').should.equal(true);
