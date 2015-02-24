@@ -6,51 +6,43 @@
  
 var imdbApi = require('../index');
 
+var output = function(err, data) {
+	if (err) {
+		console.log(err);
+	} else {
+		console.log(data);	
+	}
+};
+
 /**
  * Find movie by title.
  */
-var paramsWithTitle = {
+imdbApi.get({
 	title: 'Terminator',
 	year: 2012
-};
-
-imdbApi.get(paramsWithTitle, function(err, data) {
-	console.log(data);
-});
+}, output);
 
 /**
  * Find movie by id.
  */
-var paramsWithId = {
+imdbApi.get({
 	id: 'tt0276751'
-};
-
-imdbApi.get(paramsWithId, function(err, data) {
-	console.log(data);
-});
+}, output);
 
 /**
  * Find series by title & type.
  */
-var seriesWithOptions = {
+imdbApi.get({
 	title: 'Terminator',
 	type: 'series'
-};
-
-imdbApi.get(seriesWithOptions, function(err, data) {
-	console.log(data);
-});
+}, output);
 
 /**
  * Find movies by title & type. Inlcude full plot and rotten tomatoes review.
  */
-var movieWithOptions = {
+imdbApi.get({
 	title: 'Milk',
 	type: 'movie',
 	plot: 'full',
 	incTomatoes: true
-};
-
-imdbApi.get(movieWithOptions, function(err, data) {
-	console.log(data);
-});
+}, output);
