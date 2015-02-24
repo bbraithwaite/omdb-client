@@ -248,28 +248,10 @@ describe('Get Film', function() {
         done);
     });
 
-    it('returns no error for value: "movie"', function(done) {
+    it('returns no error for valid type', function(done) {
       var params = {
         title: 'Milk',
         type: 'movie'
-      };
-
-      _shouldNotHaveError(params, done);
-    });
-
-    it('returns no error for value: "series"', function(done) {
-      var params = {
-        title: 'Milk',
-        type: 'series'
-      };
-
-      _shouldNotHaveError(params, done);
-    });
-
-    it('returns no error for value: "episode"', function(done) {
-      var params = {
-        title: 'Milk',
-        type: 'episode'
       };
 
       _shouldNotHaveError(params, done);
@@ -304,19 +286,10 @@ describe('Get Film', function() {
         done);
     });
 
-    it('returns no error for value: "short"', function(done) {
+    it('returns no error for valid plot', function(done) {
       var params = {
         title: 'Milk',
         plot: 'short'
-      };
-
-      _shouldNotHaveError(params, done);
-    });
-
-    it('returns no error for value: "full"', function(done) {
-      var params = {
-        title: 'Milk',
-        plot: 'full'
       };
 
       _shouldNotHaveError(params, done);
