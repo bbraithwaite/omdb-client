@@ -48,6 +48,6 @@ npm run coverage
 
 Run jshint:
 
-``` bash
+```bash
 npm run lint
 ```
