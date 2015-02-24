@@ -36,13 +36,13 @@ See [more examples](https://github.com/bbraithwaite/imdb-api-client/blob/master/
 
 Run tests:
 
-``` bash
+```bash
 npm test
 ```
 
 Run test coverage report:
 
-``` bash
+```bash
 npm run coverage
 ```
 
