@@ -1,19 +1,21 @@
 'use strict';
 
+/**
+ * Module dependencies.
+ */
 var should = require('should');
-
 var simpleHttp = require('../lib/simple-http');
 var imdbApi = require('../index');
 var sinon = require('sinon');
 
-var _errorShouldNotExist = function(params, done) {
+var _shouldNotHaveError = function(params, done) {
 	imdbApi.get(params, function(err) {
 		should.not.exist(err);
 		done();
 	});
 };
 
-var _errorShouldHaveMessage = function(params, message, done) {
+var _shouldHaveErrorMessage = function(params, message, done) {
 	imdbApi.get(params, function(err) {
 		err.should.eql(message);
 		done();
@@ -43,14 +45,14 @@ describe('Get Film', function() {
 	describe('with invalid mandatory params', function() {
 		
 		it('returns error when params object is null', function(done) {
-			_errorShouldHaveMessage(
+			_shouldHaveErrorMessage(
 				null, 
 				'params cannot be null.', 
 				done);
 		});
 
 		it('returns error when id and title is empty', function(done) {
-			_errorShouldHaveMessage(
+			_shouldHaveErrorMessage(
 				{}, 
 				'id or title param required.', 
 				done);
@@ -65,7 +67,7 @@ describe('Get Film', function() {
 				title: 50
 			};
 
-			_errorShouldHaveMessage(params, 'title must be a string.', done);
+			_shouldHaveErrorMessage(params, 'title must be a string.', done);
 		});
 
 		it('calls omdbapi with title querystring param', function(done) {
@@ -101,7 +103,7 @@ describe('Get Film', function() {
 				id: 123
 			};
 
-			_errorShouldHaveMessage(params, 'id must be a string.', done);
+			_shouldHaveErrorMessage(params, 'id must be a string.', done);
 		});
 
 		it('calls omdbapi with id querystring param', function(done) {
@@ -125,7 +127,7 @@ describe('Get Film', function() {
 				year: 'movie'
 			};
 
-			_errorShouldHaveMessage(
+			_shouldHaveErrorMessage(
 				params, 
 				'year must be a valid number', 
 				done);
@@ -154,7 +156,7 @@ describe('Get Film', function() {
 				incTomatoes: 'yes'
 			};
 
-			_errorShouldHaveMessage(
+			_shouldHaveErrorMessage(
 				params, 
 				'incTomatoes must be a boolean.',
 				done);
@@ -183,7 +185,7 @@ describe('Get Film', function() {
 				type: 'film'
 			};
 
-			_errorShouldHaveMessage(
+			_shouldHaveErrorMessage(
 				params, 
 				'type must be: movie, series, episode.', 
 				done);
@@ -195,7 +197,7 @@ describe('Get Film', function() {
 				type: 'movie'
 			};
 
-			_errorShouldNotExist(params, done);
+			_shouldNotHaveError(params, done);
 		});
 
 		it('returns no error for value: "series"', function(done) {
@@ -204,7 +206,7 @@ describe('Get Film', function() {
 				type: 'series'
 			};
 
-			_errorShouldNotExist(params, done);
+			_shouldNotHaveError(params, done);
 		});
 
 		it('returns no error for value: "episode"', function(done) {
@@ -213,7 +215,7 @@ describe('Get Film', function() {
 				type: 'episode'
 			};
 
-			_errorShouldNotExist(params, done);
+			_shouldNotHaveError(params, done);
 		});
 
 		it('calls omdbapi with type querystring param', function(done) {
@@ -239,7 +241,7 @@ describe('Get Film', function() {
 				plot: 'big'
 			};
 
-			_errorShouldHaveMessage(
+			_shouldHaveErrorMessage(
 				params, 
 				'plot must be: short, full.',
 				done);
@@ -251,7 +253,7 @@ describe('Get Film', function() {
 				plot: 'short'
 			};
 
-			_errorShouldNotExist(params, done);
+			_shouldNotHaveError(params, done);
 		});
 
 		it('returns no error for value: "full"', function(done) {
@@ -260,7 +262,7 @@ describe('Get Film', function() {
 				plot: 'full'
 			};
 
-			_errorShouldNotExist(params, done);
+			_shouldNotHaveError(params, done);
 		});
 
 		it('calls omdbapi with plot querystring param', function(done) {
