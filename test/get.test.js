@@ -5,7 +5,7 @@
  */
  
 var should = require('should');
-var simpleHttp = require('../lib/simple-http');
+var simpleHttp = require('simple-http');
 var imdbApi = require('../index');
 var sinon = require('sinon');
 
@@ -25,7 +25,7 @@ var _shouldHaveErrorMessage = function(params, message, done) {
 
 var _shouldBeCalledWithUrl = function(params, expectedUrl, done) {
   imdbApi.get(params, function() {
-    simpleHttp.get
+    simpleHttp.getJson
     .calledWith(expectedUrl)
     .should.equal(true);
     done();
@@ -35,12 +35,12 @@ var _shouldBeCalledWithUrl = function(params, expectedUrl, done) {
 describe('Get Film', function() {
 
   beforeEach(function() {
-    sinon.stub(simpleHttp, 'get');
-    simpleHttp.get.yields(null, { title: 'film title' });
+    sinon.stub(simpleHttp, 'getJson');
+    simpleHttp.getJson.yields(null, { title: 'film title' });
   });
 
   afterEach(function() {
-    simpleHttp.get.restore();
+    simpleHttp.getJson.restore();
   });
 
   it('with http error returns error message', function(done) {
@@ -50,7 +50,7 @@ describe('Get Film', function() {
       title: 'Terminator'
     };
 
-    simpleHttp.get.withArgs(url).yields('timeout error', null);
+    simpleHttp.getJson.withArgs(url).yields('timeout error', null);
 
     _shouldHaveErrorMessage(
       params,
@@ -70,7 +70,7 @@ describe('Get Film', function() {
       title: 'Alcatraz'
     };
 
-    simpleHttp.get.withArgs(url).yields(null, response);
+    simpleHttp.getJson.withArgs(url).yields(null, response);
 
     _shouldHaveErrorMessage(
       params,
@@ -91,7 +91,7 @@ describe('Get Film', function() {
       title: 'The Brain Terminator'
     };
 
-    simpleHttp.get.withArgs(url).yields(null, response);
+    simpleHttp.getJson.withArgs(url).yields(null, response);
 
     imdbApi.get(params, function(err, data) {
       data.should.eql(response);
