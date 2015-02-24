@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive -R spec",
-    "lint": "jshint ."
+    "lint": "jshint .",
+    "coverage": "istanbul cover _mocha -- -R spec"
   },
   "pre-commit": [
     "test",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/bbraithwaite/imdb-api-client",
   "devDependencies": {
+    "istanbul": "^0.3.6",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",
     "pre-commit": "^1.0.4",
