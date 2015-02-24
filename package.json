@@ -4,8 +4,13 @@
   "description": "A node.js client for the http://www.omdbapi.com API.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive -R spec"
+    "test": "mocha --recursive -R spec",
+    "lint": "jshint ."
   },
+  "pre-commit": [
+    "test",
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/bbraithwaite/imdb-api-client.git"
@@ -24,6 +29,7 @@
   "devDependencies": {
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",
+    "pre-commit": "^1.0.4",
     "sinon": "^1.12.2"
   }
 }
