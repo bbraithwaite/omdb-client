@@ -6,7 +6,7 @@ A lightweight client for the [http://www.omdbapi.com](http://www.omdbapi.com) se
 
 Get specific movie:
 
-```
+```js
 var params = {
 	title: 'Terminator',
 	year: 2012
@@ -20,7 +20,7 @@ See [more examples](https://github.com/bbraithwaite/imdb-api-client/blob/master/
 
 Search movies:
 
-```
+```js
 var params = {
 	query: 'Terminator',
 	year: 2012
@@ -46,7 +46,7 @@ Run test coverage report:
 npm run coverage
 ```
 
-Runs jshint:
+Run jshint:
 
 ``` bash
 npm run lint
