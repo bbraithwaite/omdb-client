@@ -1,7 +1,7 @@
 {
-  "name": "imdb-client",
+  "name": "omdb-client",
   "version": "1.0.0",
-  "description": "A node.js client for the http://www.omdbapi.com API.",
+  "description": "A node.js client for the http://www.omdbapi.com API. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive -R spec",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bbraithwaite/imdb-client.git"
+    "url": "https://github.com/bbraithwaite/omdb-client.git"
   },
   "keywords": [
     "omdbapi",
@@ -24,9 +24,9 @@
   "author": "https://github.com/bbraithwaite",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bbraithwaite/imdb-client/issues"
+    "url": "https://github.com/bbraithwaite/omdb-client/issues"
   },
-  "homepage": "https://github.com/bbraithwaite/imdb-client",
+  "homepage": "https://github.com/bbraithwaite/omdb-client",
   "devDependencies": {
     "istanbul": "^0.3.6",
     "jshint": "^2.6.0",

@@ -1,6 +1,6 @@
 # IMDB Api Client
 
-A lightweight client for the [http://www.omdbapi.com](http://www.omdbapi.com) service in Node.js.
+A node.js client for the http://www.omdbapi.com API. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.
 
 ## Example
 
