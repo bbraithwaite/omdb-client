@@ -4,7 +4,7 @@
  * Module dependencies.
  */
  
-var imdbApi = require('../index');
+var omdbApi = require('../index');
 
 var output = function(err, data) {
 	if (err) {
@@ -17,7 +17,7 @@ var output = function(err, data) {
 /**
  * Find movie by title.
  */
-imdbApi.get({
+omdbApi.get({
 	title: 'Terminator',
 	year: 2012
 }, output);
@@ -25,14 +25,14 @@ imdbApi.get({
 /**
  * Find movie by id.
  */
-imdbApi.get({
+omdbApi.get({
 	id: 'tt0276751'
 }, output);
 
 /**
  * Find series by title & type.
  */
-imdbApi.get({
+omdbApi.get({
 	title: 'Terminator',
 	type: 'series'
 }, output);
@@ -40,7 +40,7 @@ imdbApi.get({
 /**
  * Find movies by title & type. Inlcude full plot and rotten tomatoes review.
  */
-imdbApi.get({
+omdbApi.get({
 	title: 'Milk',
 	type: 'movie',
 	plot: 'full',

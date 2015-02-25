@@ -5,18 +5,18 @@
  */
 
 var simpleHttp = require('simple-http');
-var imdbApi = require('../index');
+var omdbApi = require('../index');
 var sinon = require('sinon');
 
 var _shouldHaveErrorMessage = function(params, message, done) {
-	imdbApi.search(params, function(err) {
+	omdbApi.search(params, function(err) {
 		err.should.eql(message);
 		done();
 	});
 };
 
 var _shouldBeCalledWithUrl = function(params, expectedUrl, done) {
-	imdbApi.search(params, function() {
+	omdbApi.search(params, function() {
 		simpleHttp.getJson
 		.calledWith(expectedUrl)
 		.should.equal(true);
@@ -85,7 +85,7 @@ describe('Search Film', function() {
 
     simpleHttp.getJson.withArgs(url).yields(null, response);
 
-    imdbApi.search(params, function(err, data) {
+    omdbApi.search(params, function(err, data) {
       data.should.eql(response);
       done();
     });

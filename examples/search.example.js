@@ -4,7 +4,7 @@
  * Module dependencies.
  */
  
-var imdbApi = require('../index');
+var omdbApi = require('../index');
 
 var output = function(err, data) {
 	if (err) {
@@ -17,7 +17,7 @@ var output = function(err, data) {
 /**
  * Search movie by title & year.
  */
-imdbApi.search({
+omdbApi.search({
 	query: 'Terminator',
 	year: 1984
 }, output);
@@ -25,7 +25,7 @@ imdbApi.search({
 /**
  * Search movie by title, year & type.
  */
-imdbApi.search({
+omdbApi.search({
 	query: 'Terminator',
 	year: 1984,
 	type: 'movie'
