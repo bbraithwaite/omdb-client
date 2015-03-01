@@ -35,6 +35,29 @@ describe('Search Film', function() {
 		simpleHttp.getJson.restore();
 	});
 
+  it('sets user defined timeout value', function(done) {
+    var params = {
+      query: 'Terminator',
+      timeout: 3000
+    };
+    var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
+    omdbApi.search(params, function() {
+      simpleHttp.getJson.calledWith(url, 3000).should.equal(true);
+      done();
+    });
+  });
+
+  it('uses default timeout of 10 seconds if not user defined', function(done) {
+    var params = {
+      query: 'Terminator'
+    };
+    var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
+    omdbApi.search(params, function() {
+      simpleHttp.getJson.calledWith(url, 10000).should.equal(true);
+      done();
+    });
+  });
+
 	it('with http error returns error message', function(done) {
 
     var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
