@@ -1,6 +1,6 @@
 # OMDb API Client - The Open Movie Database
 
-A node.js client for the http://www.omdbapi.com API. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.
+A node.js client for the http://www.omdbapi.com API. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by its users.
 
 **Note:** This project is unaffiliated with http://www.omdbapi.com.
 
