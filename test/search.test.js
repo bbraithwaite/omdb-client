@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var simpleHttp = require('simple-http');
+var jsonHttp = require('json-http');
 var omdbApi = require('../index');
 var sinon = require('sinon');
 
@@ -17,7 +17,7 @@ var _shouldHaveErrorMessage = function(params, message, done) {
 
 var _shouldBeCalledWithUrl = function(params, expectedUrl, done) {
 	omdbApi.search(params, function() {
-		simpleHttp.getJson
+		jsonHttp.getJson
 		.calledWith(expectedUrl)
 		.should.equal(true);
 		done();
@@ -27,12 +27,12 @@ var _shouldBeCalledWithUrl = function(params, expectedUrl, done) {
 describe('Search Film', function() {
 
 	beforeEach(function() {
-		sinon.stub(simpleHttp, 'getJson');
-		simpleHttp.getJson.yields(null, { title: 'film title' });
+		sinon.stub(jsonHttp, 'getJson');
+		jsonHttp.getJson.yields(null, { title: 'film title' });
 	});
 
 	afterEach(function() {
-		simpleHttp.getJson.restore();
+		jsonHttp.getJson.restore();
 	});
 
   it('sets user defined timeout value', function(done) {
@@ -42,7 +42,7 @@ describe('Search Film', function() {
     };
     var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
     omdbApi.search(params, function() {
-      simpleHttp.getJson.calledWith(url, 3000).should.equal(true);
+      jsonHttp.getJson.calledWith(url, 3000).should.equal(true);
       done();
     });
   });
@@ -53,7 +53,7 @@ describe('Search Film', function() {
     };
     var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
     omdbApi.search(params, function() {
-      simpleHttp.getJson.calledWith(url, 10000).should.equal(true);
+      jsonHttp.getJson.calledWith(url, 10000).should.equal(true);
       done();
     });
   });
@@ -65,7 +65,7 @@ describe('Search Film', function() {
       query: 'Terminator'
     };
 
-    simpleHttp.getJson.withArgs(url).yields('timeout error', null);
+    jsonHttp.getJson.withArgs(url).yields('timeout error', null);
 
     _shouldHaveErrorMessage(
       params,
@@ -85,7 +85,7 @@ describe('Search Film', function() {
       query: 'Alcatraz'
     };
 
-    simpleHttp.getJson.withArgs(url).yields(null, response);
+    jsonHttp.getJson.withArgs(url).yields(null, response);
 
     _shouldHaveErrorMessage(
       params,
@@ -106,7 +106,7 @@ describe('Search Film', function() {
       query: 'The Brain Terminator'
     };
 
-    simpleHttp.getJson.withArgs(url).yields(null, response);
+    jsonHttp.getJson.withArgs(url).yields(null, response);
 
     omdbApi.search(params, function(err, data) {
       data.should.eql(response);

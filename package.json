@@ -35,6 +35,6 @@
     "sinon": "^1.12.2"
   },
   "dependencies": {
-    "simple-http": "git+https://github.com/bbraithwaite/simple-http.git"
+    "json-http": "git+https://github.com/bbraithwaite/json-http.git"
   }
 }
