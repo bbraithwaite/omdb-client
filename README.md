@@ -18,6 +18,13 @@ npm install omdb-client
 
 ## Examples
 
+The API supports two functions:
+
+* Get (specific detail)
+* Search (broader search)
+
+### Get
+
 Get specific movie:
 
 ```js
@@ -32,7 +39,7 @@ omdbApi.get(params, function(err, data) {
 
 See [more examples](https://github.com/bbraithwaite/omdb-client/blob/master/examples/get.example.js).
 
-### Parameters
+The follow parameters are available for get:
 
 Parameter Name | Required   		| Data Type       | Valid Options 	| Description
 -------------  | -------------  | -------------		| -------------   | -------------
@@ -45,7 +52,7 @@ incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratin
 
 * An id or title must be provided
 
-Search movies:
+### Search
 
 ```js
 var params = {
@@ -59,7 +66,7 @@ omdbApi.search(params, function(err, data) {
 
 See [more examples](https://github.com/bbraithwaite/omdb-client/blob/master/examples/search.example.js).
 
-### Parameters
+The follow parameters are available for search:
 
 Parameter Name | Required   		| Data Type       | Valid Options 	| Description
 -------------  | -------------  | -------------		| -------------   | -------------
