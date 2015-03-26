@@ -18,7 +18,7 @@ omdbApi.get(params, function(err, data) {
 });
 ```
 
-See [more examples](https://github.com/bbraithwaite/omdb-api-client/blob/master/examples/get.example.js).
+See [more examples](https://github.com/bbraithwaite/omdb-client/blob/master/examples/get.example.js).
 
 Search movies:
 
@@ -32,7 +32,7 @@ omdbApi.search(params, function(err, data) {
 });
 ```
 
-See [more examples](https://github.com/bbraithwaite/omdb-api-client/blob/master/examples/search.example.js).
+See [more examples](https://github.com/bbraithwaite/omdb-client/blob/master/examples/search.example.js).
 
 ##Dev Commands:
 
