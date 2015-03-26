@@ -80,7 +80,9 @@ incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratin
 
 * An id or title must be provided
 
-## Dev Commands:
+### Dev Commands:
+
+Contributions are welcome. Be aware that there is a pre-commit hook to check linting and tests.
 
 Run tests:
 
@@ -88,14 +90,14 @@ Run tests:
 npm test
 ```
 
-Run test coverage report:
-
-```bash
-npm run coverage
-```
-
 Run jshint:
 
 ```bash
 npm run lint
+```
+
+Run test coverage report:
+
+```bash
+npm run coverage
 ```
