@@ -4,6 +4,14 @@ A node.js client for the http://www.omdbapi.com API. The OMDb API is a free web 
 
 **Note:** This project is unaffiliated with http://www.omdbapi.com.
 
+## NPM
+
+Available via npm:
+
+```bash
+npm install omdb-client
+```
+
 ## Example
 
 Get specific movie:
