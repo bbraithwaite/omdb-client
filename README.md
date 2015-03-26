@@ -8,7 +8,7 @@ A node.js client for the http://www.omdbapi.com API. The OMDb API is a free web 
 
 [![Build Status](https://travis-ci.org/bbraithwaite/omdb-client.svg?branch=master)](https://travis-ci.org/bbraithwaite/omdb-client)
 
-## NPM
+## Install via NPM
 
 Available via npm:
 
@@ -39,7 +39,7 @@ omdbApi.get(params, function(err, data) {
 
 See [more examples](https://github.com/bbraithwaite/omdb-client/blob/master/examples/get.example.js).
 
-The follow parameters are available for get:
+The following parameters are available for get:
 
 Parameter Name | Required   		| Data Type       | Valid Options 	| Description
 -------------  | -------------  | -------------		| -------------   | -------------
@@ -54,6 +54,8 @@ incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratin
 
 ### Search
 
+Search movies:
+
 ```js
 var params = {
 	query: 'Terminator',
@@ -66,7 +68,7 @@ omdbApi.search(params, function(err, data) {
 
 See [more examples](https://github.com/bbraithwaite/omdb-client/blob/master/examples/search.example.js).
 
-The follow parameters are available for search:
+The following parameters are available for search:
 
 Parameter Name | Required   		| Data Type       | Valid Options 	| Description
 -------------  | -------------  | -------------		| -------------   | -------------
