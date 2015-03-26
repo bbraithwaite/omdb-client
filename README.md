@@ -16,7 +16,7 @@ Available via npm:
 npm install omdb-client
 ```
 
-## Example
+## Examples
 
 Get specific movie:
 
@@ -32,6 +32,19 @@ omdbApi.get(params, function(err, data) {
 
 See [more examples](https://github.com/bbraithwaite/omdb-client/blob/master/examples/get.example.js).
 
+### Parameters
+
+Parameter Name | Required   		| Data Type       | Valid Options 	| Description
+-------------  | -------------  | -------------		| -------------   | -------------
+id             | optional* 			| string					| 								|	A valid IMDb ID (e.g. tt1285016)
+title          | optional*			| string					| 								|	Movie title to search for.
+type           | no							| string          | movie, series, episode			      | Type of result to return.
+year           | no							| number					| 								|	Year of release.
+plot           | no							|	string	        | short, full 		|	Return short or full plot.
+incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratings. 
+
+* An id or title must be provided
+
 Search movies:
 
 ```js
@@ -45,6 +58,18 @@ omdbApi.search(params, function(err, data) {
 ```
 
 See [more examples](https://github.com/bbraithwaite/omdb-client/blob/master/examples/search.example.js).
+
+### Parameters
+
+Parameter Name | Required   		| Data Type       | Valid Options 	| Description
+-------------  | -------------  | -------------		| -------------   | -------------
+query          | yes      			| string					| 								|	Movie title to search for.
+type           | no							| string          | movie, series, episode			      | Type of result to return.
+year           | no							| number					| 								|	Year of release.
+plot           | no							|	string	        | short, full 		|	Return short or full plot.
+incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratings. 
+
+* An id or title must be provided
 
 ## Dev Commands:
 
