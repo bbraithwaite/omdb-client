@@ -1,15 +1,53 @@
-require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.omdb = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+module.exports.getJson = function() {  
+  var xhr = new XMLHttpRequest();
+  var url = arguments[0];
+  var timeoutInMs = 10000;
+  var callback;
+
+  if (typeof(arguments[1]) === 'function') {
+    callback = arguments[1]; 
+  }
+
+  if (typeof(arguments[1]) === 'number') {
+    timeoutInMs = arguments[1];
+    callback = arguments[2];
+  }
+
+  xhr.onreadystatechange = function() {
+    this.timeout = timeoutInMs;
+    if (this.readyState === 4) {
+      if (this.status === 200) {
+        callback(null, this.response);
+      } else {
+        // timeouts are handled by ontimeout callback
+        if (this.status !== 0) { 
+          callback(this);
+        }
+      }
+    }
+  };
+  xhr.open('GET', url);
+  xhr.responseType = 'json';
+  xhr.timeout = timeoutInMs;
+  xhr.ontimeout = callback;
+  xhr.send();
+};
+
+},{}],2:[function(require,module,exports){
 
 module.exports.get = require('./lib/get');
 module.exports.search = require('./lib/search');
-},{"./lib/get":2,"./lib/search":3}],2:[function(require,module,exports){
+},{"./lib/get":3,"./lib/search":4}],3:[function(require,module,exports){
 'use strict';
 
 /**
  * Module dependencies.
  */
 
-var http = require('json-http');
+var http = require('./../client/json-http.js');
 var validator = require('./validator');
 
 /**
@@ -152,14 +190,14 @@ module.exports = function(params, callback) {
   });
 };
 
-},{"./validator":4,"json-http":"json-http"}],3:[function(require,module,exports){
+},{"./../client/json-http.js":1,"./validator":5}],4:[function(require,module,exports){
 'use strict';
 
 /**
  * Module dependencies.
  */
 
-var http = require('json-http');
+var http = require('./../client/json-http.js');
 var validator = require('./validator');
 
 /**
@@ -264,7 +302,7 @@ module.exports = function(params, callback) {
 
 };
 
-},{"./validator":4,"json-http":"json-http"}],4:[function(require,module,exports){
+},{"./../client/json-http.js":1,"./validator":5}],5:[function(require,module,exports){
 'use strict';
 
 /**
@@ -342,42 +380,5 @@ module.exports.isValidPlotType = function(params) {
   return true;
 };
 
-},{}],"json-http":[function(require,module,exports){
-'use strict';
-
-module.exports.getJson = function() {  
-  var xhr = new XMLHttpRequest();
-  var url = arguments[0];
-  var timeoutInMs = 10000;
-  var callback;
-
-  if (typeof(arguments[1]) === 'function') {
-    callback = arguments[1]; 
-  }
-
-  if (typeof(arguments[1]) === 'number') {
-    timeoutInMs = arguments[1];
-    callback = arguments[2];
-  }
-
-  xhr.onreadystatechange = function() {
-    this.timeout = timeoutInMs;
-    if (this.readyState === 4) {
-      if (this.status === 200) {
-        callback(null, this.response);
-      } else {
-        // timeouts are handled by ontimeout callback
-        if (this.status !== 0) { 
-          callback(this);
-        }
-      }
-    }
-  };
-  xhr.open('GET', url);
-  xhr.responseType = 'json';
-  xhr.timeout = timeoutInMs;
-  xhr.ontimeout = callback;
-  xhr.send();
-};
-
-},{}]},{},[1]);
+},{}]},{},[2])(2)
+});

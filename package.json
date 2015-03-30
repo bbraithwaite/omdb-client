@@ -1,6 +1,6 @@
 {
   "name": "omdb-client",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A node.js client for the http://www.omdbapi.com API. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.",
   "main": "index.js",
   "scripts": {
@@ -50,5 +50,13 @@
   },
   "engines": {
     "node": ">= 0.10.0"
+  },
+  "browserify": {
+    "transform": [ "aliasify" ]
+  },
+  "aliasify": {
+    "aliases": {
+      "json-http": "./client/json-http.js"
+    }
   }
 }

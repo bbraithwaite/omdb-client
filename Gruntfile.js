@@ -7,12 +7,12 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     browserify: {
       client: {
-        src: ['client/index.js'],
+        src: ['index.js'],
         dest: 'build/omdb-client.js',
         options: {
-          alias: [
-            './client/json-http.js:json-http',
-          ]
+          browserifyOptions: {
+            standalone: 'omdb'
+          }
         }
       }
     },
