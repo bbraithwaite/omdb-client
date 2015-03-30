@@ -19,6 +19,9 @@
     "test",
     "tests",
     "client",
-    "lib"
+    "lib",
+    "index.js",
+    "Gruntfile.js",
+    "package.json"
   ]
 }
