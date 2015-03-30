@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     browserify: {
       client: {
         src: ['index.js'],
-        dest: 'build/omdb-client.js',
+        dest: 'dist/omdb-client.js',
         options: {
           browserifyOptions: {
             standalone: 'omdb'
@@ -21,8 +21,8 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= pkg.version %> */\n'
       },
       build: {
-        src: 'build/omdb-client.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+        src: 'dist/omdb-client.js',
+        dest: 'dist/<%= pkg.name %>.min.js'
       }
     },
     jshint: {
