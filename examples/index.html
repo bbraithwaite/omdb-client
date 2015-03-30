@@ -12,8 +12,7 @@
 	<div id="timeout"></div>
 	<script type="text/javascript" src="../build/omdb-client.min.js"></script>
 	<script>
-		var omdbClient = this.omdb;
-		omdbClient.search({
+		this.omdb.search({
 			query: 'Terminator',
 			year: 1984
 		}, function handleResponse(err, data) { 
@@ -25,7 +24,7 @@
 			}
 		});
 
-		omdbClient.get({
+		this.omdb.get({
 			id: 'tt0276751',
 		}, function handleResponse(err, data) { 
 			var el = document.getElementById('get');
@@ -37,7 +36,7 @@
 		});
 
 		// example to show timeout functionality
-		omdbClient.get({
+		this.omdb.get({
 			id: 'tt0276751',
 			timeout: 10
 		}, function handleResponse(err, data) { 
