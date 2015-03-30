@@ -48,7 +48,7 @@ describe('Get Film', function() {
       title: 'Terminator',
       timeout: 3000
     };
-    var url = 'http://www.omdbapi.com/?t=Terminator&r=json';
+    var url = 'http://www.omdbapi.com/?t=Terminator&r=json&v=1';
     omdbApi.get(params, function() {
       jsonHttp.getJson.calledWith(url, 3000).should.equal(true);
       done();
@@ -59,7 +59,7 @@ describe('Get Film', function() {
     var params = {
       title: 'Terminator'
     };
-    var url = 'http://www.omdbapi.com/?t=Terminator&r=json';
+    var url = 'http://www.omdbapi.com/?t=Terminator&r=json&v=1';
     omdbApi.get(params, function() {
       jsonHttp.getJson.calledWith(url, 10000).should.equal(true);
       done();
@@ -68,7 +68,7 @@ describe('Get Film', function() {
 
   it('with http error returns error message', function(done) {
 
-    var url = 'http://www.omdbapi.com/?t=Terminator&r=json';
+    var url = 'http://www.omdbapi.com/?t=Terminator&r=json&v=1';
     var params = {
       title: 'Terminator'
     };
@@ -83,7 +83,7 @@ describe('Get Film', function() {
 
   it('with imdb error returns error message', function(done) {
 
-    var url = 'http://www.omdbapi.com/?t=Alcatraz&r=json';
+    var url = 'http://www.omdbapi.com/?t=Alcatraz&r=json&v=1';
     
     var response = { 
       Error: 'message from imdb server' 
@@ -103,7 +103,7 @@ describe('Get Film', function() {
 
   it('with imdb data returns response data', function(done) {
 
-    var url = 'http://www.omdbapi.com/?t=The%20Brain%20Terminator&r=json';
+    var url = 'http://www.omdbapi.com/?t=The%20Brain%20Terminator&r=json&v=1';
     
     var response = { 
       Title: 'The Brain Terminator',
@@ -158,7 +158,7 @@ describe('Get Film', function() {
       _shouldBeCalledWithUrl(
         params,
         'http://www.omdbapi.com/' +
-          '?t=Milk&r=json',
+          '?t=Milk&r=json&v=1',
         done);
     });
 
@@ -171,7 +171,7 @@ describe('Get Film', function() {
       _shouldBeCalledWithUrl(
         params,
         'http://www.omdbapi.com/' +
-          '?i=tt1013753&t=Milk&r=json',
+          '?i=tt1013753&t=Milk&r=json&v=1',
         done);
     });
   });
@@ -194,7 +194,7 @@ describe('Get Film', function() {
       _shouldBeCalledWithUrl(
         params,
         'http://www.omdbapi.com/' +
-          '?i=tt1013753&r=json',
+          '?i=tt1013753&r=json&v=1',
         done);
     });
   });
@@ -222,7 +222,7 @@ describe('Get Film', function() {
       _shouldBeCalledWithUrl(
         params,
         'http://www.omdbapi.com/' +
-          '?i=tt1013753&y=2008&r=json',
+          '?i=tt1013753&y=2008&r=json&v=1',
         done);
     });
 
@@ -251,7 +251,7 @@ describe('Get Film', function() {
       _shouldBeCalledWithUrl(
         params,
         'http://www.omdbapi.com/' +
-          '?i=tt1013753&tomatoes=true&r=json',
+          '?i=tt1013753&tomatoes=true&r=json&v=1',
         done);
     });
 
@@ -289,7 +289,7 @@ describe('Get Film', function() {
       _shouldBeCalledWithUrl(
         params,
         'http://www.omdbapi.com/' +
-          '?i=tt1013753&type=episode&r=json',
+          '?i=tt1013753&type=episode&r=json&v=1',
         done);
     });
 
@@ -327,7 +327,7 @@ describe('Get Film', function() {
       _shouldBeCalledWithUrl(
         params,
         'http://www.omdbapi.com/' +
-          '?i=tt1013753&plot=full&r=json',
+          '?i=tt1013753&plot=full&r=json&v=1',
         done);
     });
 

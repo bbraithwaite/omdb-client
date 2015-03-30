@@ -4,7 +4,9 @@
   "description": "A node.js client for the http://www.omdbapi.com API. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.",
   "main": "index.js",
   "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1 -s",
     "test": "mocha --recursive -R spec",
+    "test-client": "./node_modules/.bin/karma start karma.conf.js",
     "lint": "jshint .",
     "coverage": "istanbul cover _mocha -- -R spec"
   },
@@ -28,6 +30,14 @@
   },
   "homepage": "https://github.com/bbraithwaite/omdb-client",
   "devDependencies": {
+    "aliasify": "^1.7.2",
+    "browserify": "^9.0.3",
+    "chai": "^2.2.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.6.0",
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-contrib-uglify": "^0.8.0",
+    "http-server": "^0.8.0",
     "istanbul": "^0.3.6",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",

@@ -40,7 +40,7 @@ describe('Search Film', function() {
       query: 'Terminator',
       timeout: 3000
     };
-    var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
+    var url = 'http://www.omdbapi.com/?s=Terminator&r=json&v=1';
     omdbApi.search(params, function() {
       jsonHttp.getJson.calledWith(url, 3000).should.equal(true);
       done();
@@ -51,7 +51,7 @@ describe('Search Film', function() {
     var params = {
       query: 'Terminator'
     };
-    var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
+    var url = 'http://www.omdbapi.com/?s=Terminator&r=json&v=1';
     omdbApi.search(params, function() {
       jsonHttp.getJson.calledWith(url, 10000).should.equal(true);
       done();
@@ -60,7 +60,7 @@ describe('Search Film', function() {
 
 	it('with http error returns error message', function(done) {
 
-    var url = 'http://www.omdbapi.com/?s=Terminator&r=json';
+    var url = 'http://www.omdbapi.com/?s=Terminator&r=json&v=1';
     var params = {
       query: 'Terminator'
     };
@@ -75,7 +75,7 @@ describe('Search Film', function() {
 
   it('with imdb error returns error message', function(done) {
 
-    var url = 'http://www.omdbapi.com/?s=Alcatraz&r=json';
+    var url = 'http://www.omdbapi.com/?s=Alcatraz&r=json&v=1';
     
     var response = { 
       Error: 'message from imdb server' 
@@ -95,7 +95,7 @@ describe('Search Film', function() {
 
   it('with imdb data returns response data', function(done) {
 
-    var url = 'http://www.omdbapi.com/?s=The%20Brain%20Terminator&r=json';
+    var url = 'http://www.omdbapi.com/?s=The%20Brain%20Terminator&r=json&v=1';
     
     var response = { 
       Title: 'The Brain Terminator',
@@ -149,7 +149,7 @@ describe('Search Film', function() {
 
 			_shouldBeCalledWithUrl(
 				params,
-				'http://www.omdbapi.com/?s=Terminator&r=json',
+				'http://www.omdbapi.com/?s=Terminator&r=json&v=1',
 				done);
 		});
 
@@ -177,7 +177,7 @@ describe('Search Film', function() {
 
 			_shouldBeCalledWithUrl(
 				params,
-				'http://www.omdbapi.com/?s=Terminator&type=movie&r=json',
+				'http://www.omdbapi.com/?s=Terminator&type=movie&r=json&v=1',
 				done);
 		});
 
@@ -206,7 +206,7 @@ describe('Search Film', function() {
 			_shouldBeCalledWithUrl(
 				params,
 				'http://www.omdbapi.com/' +
-					'?s=Terminator&y=1984&r=json',
+					'?s=Terminator&y=1984&r=json&v=1',
 				done);
 		});
 

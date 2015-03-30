@@ -28,6 +28,8 @@ The API supports two functions:
 Get specific movie:
 
 ```js
+var omdbApi = require('omdb-client');
+
 var params = {
 	title: 'Terminator',
 	year: 2012
@@ -49,6 +51,8 @@ type           | no							| string          | movie, series, episode			      | T
 year           | no							| number					| 								|	Year of release.
 plot           | no							|	string	        | short, full 		|	Return short or full plot.
 incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratings. 
+timeout		 | no							| number					| 								|	HTTP request timeout in milliseconds (default is 10). 
+
 
 * An id or title must be provided
 
@@ -57,6 +61,8 @@ incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratin
 Search movies:
 
 ```js
+var omdbApi = require('omdb-client');
+
 var params = {
 	query: 'Terminator',
 	year: 2012
@@ -76,7 +82,8 @@ query          | yes      			| string					| 								|	Movie title to search for.
 type           | no							| string          | movie, series, episode			      | Type of result to return.
 year           | no							| number					| 								|	Year of release.
 plot           | no							|	string	        | short, full 		|	Return short or full plot.
-incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratings. 
+incTomatoes		 | no							| boolean					| 								|	Include Rotten Tomatoes ratings.
+timeout		 | no							| number					| 								|	HTTP request timeout in milliseconds (default is 10).  
 
 * An id or title must be provided
 
