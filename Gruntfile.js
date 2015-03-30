@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= pkg.version %> */\n'
+        banner: '/* <%= pkg.name %> <%= pkg.version %> */\n'
       },
       build: {
         src: 'dist/omdb-client.js',

@@ -22,7 +22,14 @@ Available via Bower:
 bower install omdb-client
 ```
 
-## Examples
+Files in Bower package:
+
+* omdb-client/dist/omdb-client.js (dev)
+* omdb-client/dist/omdb-client.min.js (release)
+
+Module is exposed using UMD bundle with the name 'omdb'.
+
+## API Guide
 
 The API supports two functions:
 
