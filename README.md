@@ -33,7 +33,7 @@ The API supports two functions:
 
 Get specific movie:
 
-### Server-Side
+#### Server-Side
 
 ```js
 var omdbApi = require('omdb-client');
@@ -47,7 +47,7 @@ omdbApi.get(params, function(err, data) {
 });
 ```
 
-### Front-End
+#### Front-End
 
 ```js
 var params = {
@@ -81,7 +81,7 @@ timeout		 | no							| number					| 								|	HTTP request timeout in millisecon
 Search movies:
 
 
-### Server-Side
+#### Server-Side
 
 ```js
 var omdbApi = require('omdb-client');
@@ -95,7 +95,7 @@ omdbApi.search(params, function(err, data) {
 });
 ```
 
-### Front-End
+#### Front-End
 
 ```js
 var params = {
