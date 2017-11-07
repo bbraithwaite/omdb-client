@@ -123,6 +123,10 @@ var _createUrl = function(params) {
   var baseUrl = 'http://www.omdbapi.com/';
   var query = '?';
   
+  if (params.apiKey) {
+    query += 'api_key='.concat(params.apiKey);
+  }
+  
   if (params.id) {
     query += 'i='.concat(params.id);
   }
@@ -256,6 +260,10 @@ var _createUrl = function(params) {
   
   // mandatory
   query += 's='.concat(encodeURIComponent(params.query));
+  
+  if (params.apiKey) {
+    query += 'api_key='.concat(params.apiKey);
+  }
   
   if (params.year) {
     query += '&y='.concat(params.year);
