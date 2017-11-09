@@ -57,10 +57,9 @@ describe('Get Film', function() {
 
   it('uses default timeout of 10 seconds if not user defined', function(done) {
     var params = {
-      apiKey: 'foo',
       title: 'Terminator'
     };
-    var url = 'http://www.omdbapi.com/?t=Terminator&apiKey=foo&r=json&v=1';
+    var url = 'http://www.omdbapi.com/?t=Terminator&r=json&v=1';
     omdbApi.get(params, function() {
       jsonHttp.getJson.calledWith(url, 10000).should.equal(true);
       done();
