@@ -6,6 +6,8 @@
  
 var omdbApi = require('../index');
 
+// var apiKey = 'XXXXXXXX';
+
 var output = function(err, data) {
 	if (err) {
 		console.log(err);
@@ -19,7 +21,7 @@ var output = function(err, data) {
  */
 omdbApi.get({
 	title: 'Terminator',
-	year: 2012
+	year: 2012,
 }, output);
 
 /**
