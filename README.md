@@ -46,6 +46,7 @@ Get specific movie:
 var omdbApi = require('omdb-client');
 
 var params = {
+	apiKey: 'XXXXXXX',
 	title: 'Terminator',
 	year: 2012
 }
@@ -58,6 +59,7 @@ omdbApi.get(params, function(err, data) {
 
 ```js
 var params = {
+	apiKey: 'XXXXXXX',
 	title: 'Terminator',
 	year: 2012
 }
@@ -72,6 +74,7 @@ The following parameters are available for get:
 
 Parameter Name | Required   		| Data Type       | Valid Options 	| Description
 -------------  | -------------  | -------------		| -------------   | -------------
+apiKey         | yes 			    | string					| 								|	A valid OMDB API key.
 id             | optional* 			| string					| 								|	A valid IMDb ID (e.g. tt1285016)
 title          | optional*			| string					| 								|	Movie title to search for.
 type           | no							| string          | movie, series, episode			      | Type of result to return.
@@ -94,6 +97,7 @@ Search movies:
 var omdbApi = require('omdb-client');
 
 var params = {
+	apiKey: 'XXXXXXX',
 	query: 'Terminator',
 	year: 2012
 }
@@ -106,6 +110,7 @@ omdbApi.search(params, function(err, data) {
 
 ```js
 var params = {
+	apiKey: 'XXXXXXX',
 	query: 'Terminator',
 	year: 2012
 }
@@ -120,6 +125,7 @@ The following parameters are available for search:
 
 Parameter Name | Required   		| Data Type       | Valid Options 	| Description
 -------------  | -------------  | -------------		| -------------   | -------------
+apiKey         | yes      			| string					| 								|	A valid OMDB API key.
 query          | yes      			| string					| 								|	Movie title to search for.
 type           | no							| string          | movie, series, episode			      | Type of result to return.
 year           | no							| number					| 								|	Year of release.

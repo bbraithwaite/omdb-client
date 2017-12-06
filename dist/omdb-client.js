@@ -123,10 +123,14 @@ var _createUrl = function(params) {
   var baseUrl = 'http://www.omdbapi.com/';
   var query = '?';
   
+  if (params.apiKey) {
+    query += 'apikey='.concat(params.apiKey) + '&';
+  }
+
   if (params.id) {
     query += 'i='.concat(params.id);
   }
-
+  
   if (params.title) {
 
     if (params.id) {
@@ -154,7 +158,7 @@ var _createUrl = function(params) {
     query += '&plot='.concat(params.plot);
   }
 
-  return baseUrl.concat(query, '&r=json&v=1');
+  return baseUrl.concat(query, '&r=json&v=2');
 };
 
 /**
@@ -256,6 +260,10 @@ var _createUrl = function(params) {
   
   // mandatory
   query += 's='.concat(encodeURIComponent(params.query));
+  
+  if (params.apiKey) {
+    query += '&apikey='.concat(params.apiKey);
+  }
   
   if (params.year) {
     query += '&y='.concat(params.year);

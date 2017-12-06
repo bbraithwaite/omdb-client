@@ -44,15 +44,15 @@ describe('Get Film', function() {
   });
 
   it('sets user defined timeout value', function(done) {
-    var params = {
-      title: 'Terminator',
-      timeout: 3000
-    };
-    var url = 'http://www.omdbapi.com/?t=Terminator&r=json&v=1';
-    omdbApi.get(params, function() {
-      jsonHttp.getJson.calledWith(url, 3000).should.equal(true);
-      done();
-    });
+      var params = {
+          title: 'Terminator',
+          timeout: 3000
+      };
+      var url = 'http://www.omdbapi.com/?t=Terminator&r=json&v=1';
+      omdbApi.get(params, function() {
+          jsonHttp.getJson.calledWith(url, 3000).should.equal(true);
+          done();
+      });
   });
 
   it('uses default timeout of 10 seconds if not user defined', function(done) {
